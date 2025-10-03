@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+
+.topo{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.topo img{
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.topo h1{
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: cursive;
+    font-size: clamp(24px, 6vw, 60px);
+    padding: 15px 25px;
+    border-radius: 12px;
+    background-color: #999A9B; /* fundo branco sólido */
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+.topo h1 span{
+        /* texto com degradê */
+    background-image: linear-gradient(to right, #ee3374, #860202);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.galeria h2{
+    font-family: cursive;
+}
+
+
+.fotos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.fotos img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.fotos a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.fotos a:hover{
+    transform: scale(1.1);
+    color: #d6336c;
+}
+
+/* Fundo do site com imagem */
+body {
+    margin: 0;
+    font-family: cursive;
+
+    /* Imagem de fundo */
+    background-image: url('../imagens/pexels-kpaukshtite-704748.jpg'); /* substitua pelo caminho da sua imagem */
+    background-size: cover;      /* cobre toda a tela */
+    background-repeat: no-repeat;
+    background-position: center; /* centraliza a imagem */
+
+    min-height: 100vh;
+}
+
