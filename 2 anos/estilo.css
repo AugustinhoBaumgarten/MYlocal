@@ -2,17 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Sriracha&display=swap');
 
-/* h1 e fotos para telas menores que 480px */
-@media (max-width: 480px) {
-    .topo h1 {
-        font-size: clamp(20px, 8vw, 40px); /* tamanho menor */
-        padding: 10px 15px; /* menos padding */
-    }
-        .fotos img {
-        width: 200px;   /* AJUSTE: tamanho desejado */
-        height: 200px;  /* AJUSTE: tamanho desejado */
-    }
-}
+
+
 
 .topo{
     position: relative;
@@ -78,8 +69,8 @@
 }
 
 .fotos img{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -117,3 +108,27 @@ body {
     min-height: 100vh;
 }
 
+/* h1 e fotos para telas menores que 480px */
+
+@media (max-width: 480px) {
+    .topo h1 {
+        font-size: clamp(20px, 8vw, 40px); /* tamanho menor */
+        padding: 10px 15px; /* menos padding */
+    }
+    .fotos {
+        grid-template-columns: 1fr;  /* apenas 1 coluna no celular */
+        gap: 15px;                   /* menos espaçamento */
+        max-width: 95%;              /* ocupa quase toda a tela */
+        margin: 20px auto;           /* centraliza o grid */
+    }
+
+    .fotos img {
+        width: 100%;   /* ocupa toda a largura da célula */
+        height: auto;  /* mantém proporção */
+    }
+
+    .fotos a {
+        font-size: 1.5em; /* diminui texto para caber melhor */
+    }
+
+}
