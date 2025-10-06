@@ -48,9 +48,10 @@ body {
 
     /* Imagem de fundo */
     background-image: url('../imagens/steve2.jpeg'); /* substitua pelo caminho da sua imagem */
-    background-size: cover;      /* cobre toda a tela */
+    background-size: contain;      /* cobre toda a tela */
     background-repeat: no-repeat;
     background-position: center; /* centraliza a imagem */
+    background-attachment: fixed;
 
     min-height: 100vh;}
 
@@ -128,7 +129,7 @@ footer a{
 }
 
 /* h1 e fotos para telas menores que 480px */
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
     .topo h1 {
         font-size: clamp(20px, 8vw, 40px); /* tamanho menor */
         padding: 10px 15px; /* menos padding */
@@ -155,17 +156,18 @@ footer a{
     }
 
 
-.video-text {
-        flex: 1;
-        font-weight: bolder;
-        font-size: 1.5rem;           /* menor que no desktop */
-        line-height: 1.4;
-        color: #aaa8a8;
-        background-color:#222222d2; /* mesmo fundo semi-transparente */
-        padding: 10px;               /* menos padding que no desktop */
-        border-radius: 12px;         /* cantos um pouco menores */
-        box-shadow: 1px 2px 5px #0c0c0c7b; /* sombra menor */
-    }
+
+    .video-text {
+            flex: 1;
+            font-weight: bolder;
+            font-size: 1.5rem;           /* menor que no desktop */
+            line-height: 1.4;
+            color: #aaa8a8;
+            background-color:#222222d2; /* mesmo fundo semi-transparente */
+            padding: 10px;               /* menos padding que no desktop */
+            border-radius: 12px;         /* cantos um pouco menores */
+            box-shadow: 1px 2px 5px #0c0c0c7b; /* sombra menor */
+        }
 
 }
 
