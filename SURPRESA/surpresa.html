@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surpresa</title>
+<link rel="stylesheet" href="surpresa.css">
+</head>
+<body>
+
+<!-- Música -->
+<audio id="musica" loop preload="auto">
+    <source src="../musics/Bruno Mars - Marry You (Official Lyric Video).mp3" type="audio/mpeg">
+</audio>
+
+<!-- Caixinha inicial -->
+<div class="caixinha" id="caixinha">
+    Clique aqui para a surpresa 🎵
+</div>
+
+<!-- Conteúdo da surpresa -->
+<div class="container" id="container" style="display: none;">
+    <h1>QUER CASAR COMIGO?</h1>
+    <img src="../imagens/anel.png" alt="Aliança de noivado" class="alianca">
+</div>
+
+<!-- Canvas para fogos -->
+<canvas id="fogos"></canvas>
+
+<script>
+const caixinha = document.getElementById('caixinha');
+const container = document.getElementById('container');
+const musica = document.getElementById('musica');
+const canvas = document.getElementById('fogos');
+const ctx = canvas.getContext('2d');
+
+// Ajusta canvas ao tamanho da tela
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// Fogos de artifício
+let particulas = [];
+function criarFogo(x, y) {
+    for (let i = 0; i < 100; i++) {
+        particulas.push({
+            x: x,
+            y: y,
+            vx: (Math.random()-0.5)*10,
+            vy: (Math.random()-2)*10,
+            alpha: 1,
+            cor: `hsl(${Math.random()*360},100%,50%)`
+        });
+    }
+}
+
+function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = particulas.length-1; i>=0; i--) {
+        let p = particulas[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha -= 0.02;
+        ctx.fillStyle = p.cor;
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
+        ctx.fill();
+        if (p.alpha <= 0) particulas.splice(i, 1);
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(animar);
+}
+animar();
+
+// Ao clicar na caixinha inicial
+caixinha.addEventListener('click', () => {
+    caixinha.style.display = 'none';
+    container.style.display = 'flex';
+    musica.volume = 0.5;
+    musica.play().catch(err => console.log("Erro ao tocar a música:", err));
+    criarFogo(window.innerWidth/2, window.innerHeight/2);
+});
+</script>
+
+</body>
+</html>
