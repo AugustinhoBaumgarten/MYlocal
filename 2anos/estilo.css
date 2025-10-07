@@ -25,7 +25,7 @@
     top: 50%;  
     left: 50%;
     transform: translate(-50%, -50%);
-    white-space: nowrap;
+    white-space: nowrap; 
 
     font-family: "Dancing Script", cursive;
   
@@ -104,9 +104,10 @@
 body {
     margin: 0;
     font-family: "Dancing Script", cursive;
+    overflow-x: hidden; /*#######*/
 
     /* Imagem de fundo */
-    background-image: url('../imagens/pexels-kpaukshtite-704748.jpg'); /* substitua pelo caminho da sua imagem */
+    background-image: url('../imagens/pexels-kpaukshtite-704748.jpg'); 
     background-size: cover;      /* cobre toda a tela */
     background-repeat: no-repeat;
     background-position: center; /* centraliza a imagem */

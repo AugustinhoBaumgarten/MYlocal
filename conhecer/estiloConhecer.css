@@ -2,6 +2,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Sriracha&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* evita overflow inesperado */
+}
+
 
 .topo{
     position: relative;
@@ -43,6 +49,7 @@
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;
     font-family: "Dancing Script", cursive;
 
@@ -54,6 +61,7 @@ body {
     background-attachment: fixed;
 
     min-height: 100vh;}
+    
 
 
 .video video {
@@ -173,5 +181,18 @@ body {
         box-shadow: 1px 2px 5px #0c0c0c7b; /* sombra menor */
     }
 
+}
+
+
+
+/*ESSA PARTE É UNICAMENTE REFERENTE A TELAS GRANDES*/
+@media (min-width: 1025px) {
+  .video-container {
+    max-width: 1300px; /* aumenta a largura total do container */
+  }
+
+  .video-text {
+    max-width: 650px; /* deixa o bloco de texto mais largo */
+  }
 }
 

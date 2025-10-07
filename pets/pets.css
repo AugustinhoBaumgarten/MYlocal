@@ -43,6 +43,7 @@
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;
     font-family: "Dancing Script", cursive;
 
@@ -173,5 +174,16 @@ body {
             box-shadow: 1px 2px 5px #0c0c0c7b; /* sombra menor */
         }
 
+}
+
+/*ESSA PARTE É UNICAMENTE REFERENTE A TELAS GRANDES*/
+@media (min-width: 1025px) {
+  .video-container {
+    max-width: 1300px; /* aumenta a largura total do container */
+  }
+
+  .video-text {
+    max-width: 650px; /* deixa o bloco de texto mais largo */
+  }
 }
 
