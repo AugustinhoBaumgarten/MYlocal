@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz da Surpresa</title>
+  <link rel="icon" href="../imagens/coracao.png">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .quiz-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #d63384;
+    }
+
+    .question {
+      display: none;
+    }
+
+    .question.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #d63384;
+    }
+
+    img {
+      margin-top: 20px;
+      width: 200px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Botão na imagem do resultado */
+    #result a img {
+      width: 200px;            /* ajuste conforme quiser */
+      max-width: 100%;
+      border-radius: 12px;     /* bordas suaves */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* sombra natural */
+      transition: transform 0.3s, box-shadow 0.3s; /* animação suave */
+      cursor: pointer;
+    }
+
+    /* Efeito ao passar o mouse */
+    #result a img:hover {
+      transform: translateY(-5px); /* eleva o botão */
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* sombra maior */}
+
+    footer {
+      margin-top: 20px;        /* espaço acima do footer */
+      text-align: center;       /* centraliza o link */
+    }
+
+    footer a {
+      text-decoration: none;
+      font-family: cursive;
+      color: #d63384;
+      font-size: 2rem;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #ff69b4;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>💖 Quiz da Surpresa 💖</h1>
+
+    <!-- Pergunta 1 -->
+    <div class="question active" id="q1">
+      <p>Onde a gente se conheceu?</p>
+      <button onclick="checkAnswer('q1', true)">Garopaba</button>
+      <button onclick="checkAnswer('q1', false)">Florianópolis</button>
+      <button onclick="checkAnswer('q1', false)">Balneário</button>
+    </div>
+
+    <!-- Pergunta 2 -->
+    <div class="question" id="q2">
+      <p>Qual foi nosso primeiro rolê?</p>
+      <button onclick="checkAnswer('q2', true)">Barraquinha de X-salada</button>
+      <button onclick="checkAnswer('q2', false)">Cinema</button>
+      <button onclick="checkAnswer('q2', false)">Show</button>
+    </div>
+
+    <!-- Pergunta 3 -->
+    <div class="question" id="q3">
+      <p>Qual o nome do nosso primeiro pet?</p>
+      <button onclick="checkAnswer('q3', false)">Steve</button>
+      <button onclick="checkAnswer('q3', true)">Luna</button>
+      <button onclick="checkAnswer('q3', false)">Max</button>
+    </div>
+
+    <!-- Pergunta 4 -->
+    <div class="question" id="q4">
+      <p>Qual é nossa comida favorita juntos?</p>
+      <button onclick="checkAnswer('q4', false)">Hambúrguer</button>
+      <button onclick="checkAnswer('q4', true)">Batatinha & Pizza de mercado</button>
+      <button onclick="checkAnswer('q4', false)">Churrasco</button>
+    </div>
+
+    <!-- Pergunta 5 -->
+    <div class="question" id="q5">
+      <p>Qual foi nossa maior aventura?</p>
+      <button onclick="checkAnswer('q5', false)">Trilha</button>
+      <button onclick="checkAnswer('q5', true)">Viagem de moto</button>
+      <button onclick="checkAnswer('q5', false)">Show de música</button>
+    </div>
+
+    <!-- Resultado Final -->
+    <div class="question" id="result">
+      <h2>Parabéns! ❤️</h2>
+      <p>Você acertou tudo! Agora clique no link a baixo e descubra a surpresa final...</p>
+        
+      <a href="#"><img src="../imagens/ChatGPT Image 7 de out. de 2025, 12_51_12.png" alt="botao"></a>
+    </div>
+
+    <footer>
+      <a href="../2 anos/index.html">Voltar</a>
+    </footer>
+
+  </div>
+
+  <script>
+    function checkAnswer(questionId, correct) {
+      if (!correct) {
+        alert("Ops, tenta de novo! 💕");
+        return;
+      }
+
+      document.getElementById(questionId).classList.remove("active");
+
+      let nextId;
+      if (questionId === "q1") nextId = "q2";
+      else if (questionId === "q2") nextId = "q3";
+      else if (questionId === "q3") nextId = "q4";
+      else if (questionId === "q4") nextId = "q5";
+      else if (questionId === "q5") nextId = "result";
+
+      document.getElementById(nextId).classList.add("active");
+    }
+  </script>
+
+</body>
+</html>

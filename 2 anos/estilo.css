@@ -33,7 +33,7 @@
     padding: 15px 25px;
     border-radius: 12px;
     background-color: #999A9B; /* fundo branco sólido */
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.311),  2px 2px 2px rgba(0, 0, 0, 0.381);;
     text-shadow: 0.5 0.5 black;
 }
 
@@ -42,6 +42,7 @@
     background-image: linear-gradient(to right, #ee3374, #860202);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 .galeria h2 span{
@@ -75,6 +76,11 @@
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
+}
+
+.fotos #surpresa {
+    grid-column: 1 / -1;  /* faz o item ocupar todas as colunas */
+    justify-self: center;  /* centraliza o conteúdo dentro do grid */
 }
 
 .fotos a{
@@ -113,7 +119,7 @@ body {
 
 @media (max-width: 480px) {
     .topo h1 {
-        font-size: clamp(20px, 8vw, 40px); /* tamanho menor */
+        font-size: clamp(40px, 8vw, 40px); /* tamanho menor */
         padding: 10px 15px; /* menos padding */
     }
     .fotos {
@@ -124,8 +130,8 @@ body {
     }
 
     .fotos img {
-        width: 100%;   /* ocupa toda a largura da célula */
-        height: auto;  /* mantém proporção */
+        width: 90%;   /* ocupa toda a largura da célula */
+        height: 400px;  /* mantém proporção */
     }
 
     .fotos a {
