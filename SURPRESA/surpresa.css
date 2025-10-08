@@ -1,6 +1,11 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
+#pare{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -28,6 +33,15 @@ body {
     animation: pulseCaixinha 1.5s infinite alternate;
     z-index: 2;
     position: relative;
+}
+#look{
+    font-size: 2em;
+}
+#inicio{
+    text-decoration: none;
+    font-size: 1em;
+    color: rgba(250, 235, 215, 0.496);
+
 }
 
 .caixinha:hover {
