@@ -127,7 +127,7 @@ footer{
 
 @media (max-width: 480px) {
     .topo h1 {
-        font-size: clamp(28px, 8vw, 40px); /* tamanho menor */
+        font-size: clamp(40px, 8vw, 40px); /* tamanho menor */
         padding: 10px 15px; /* menos padding */
     }
     .fotos {
@@ -139,14 +139,15 @@ footer{
 
     .fotos img {
         width: 90%;   /* ocupa toda a largura da célula */
-        height: auto;  /* mantém proporção */
+        height: 300px;  /* mantém proporção */
     }
 
     .fotos a {
         font-size: 1.5em; /* diminui texto para caber melhor */
     }
     body{
-        background-attachment: scroll;
+        overflow-x: hidden;
     }
+
 
 }
