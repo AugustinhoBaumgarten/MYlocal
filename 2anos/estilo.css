@@ -139,7 +139,7 @@ footer{
 
     .fotos img {
         width: 90%;   /* ocupa toda a largura da célula */
-        height: 300px;  /* mantém proporção */
+        height: 400px;  /* mantém proporção */
     }
 
     .fotos a {
